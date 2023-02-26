@@ -25,8 +25,9 @@ cloudera_manager_repo_username: ${PAYWALL_USER}
 cloudera_manager_repo_password: ${PAYWALL_PASSWORD}
 cloudera_manager_repo_url: ${CM_REPO}
 
-cloudera_manager_repo_key: https://archive.cloudera.com/p/cm5/redhat/7/x86_64/cm/RPM-GPG-KEY-cloudera
-cloudera_manager_database_prepare_script: /usr/share/cmf/schema/scm_prepare_database.sh
+# CBA is using CM6.3.4
+cloudera_manager_repo_key: https://archive.cloudera.com/p/cm6/6.3.4/redhat7/yum/RPM-GPG-KEY-cloudera
+cloudera_manager_database_prepare_script: /opt/cloudera/cm/schema/scm_prepare_database.sh
 
 
 default_password: ${DEFAULT_PASSWORD}

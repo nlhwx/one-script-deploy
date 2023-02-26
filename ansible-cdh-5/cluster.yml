@@ -20,7 +20,7 @@
 clusters:
   - name: "{{ cluster_name }}"
     # Remove undesired services below
-    services: [HDFS, HBASE, HIVE, HUE, IMPALA, KUDU, OOZIE, SOLR, SPARK_ON_YARN, YARN, ZOOKEEPER]
+    services: [HDFS, HBASE, HIVE, HUE, OOZIE, SPARK_ON_YARN, YARN, ZOOKEEPER, SENTRY, FLUME]
     security:
       kerberos: "{{ kerberos_activated }}"
       tls: "{{ auto_tls }}"
@@ -49,16 +49,6 @@ clusters:
           dfs_journalnode_edits_dir: /dfs/jn  
         SECONDARYNAMENODE:
           fs_checkpoint_dir_list: /dfs/snn
-      IMPALA:
-        IMPALAD:
-          scratch_dirs: /tmp/impala
-      KUDU:
-        KUDU_MASTER:
-          fs_wal_dir: /kudu/wal
-          fs_data_dirs: /kudu/data
-        KUDU_TSERVER:  
-          fs_wal_dir: /kudu/wal
-          fs_data_dirs: /kudu/data    
       YARN:
         RESOURCEMANAGER:
           yarn_scheduler_maximum_allocation_mb: 4096
@@ -80,40 +70,35 @@ clusters:
         HDFS: [JOURNALNODE, GATEWAY]
         HIVE: [GATEWAY]
         HUE: [HUE_SERVER, HUE_LOAD_BALANCER]
-        KUDU: [KUDU_MASTER]
         OOZIE: [OOZIE_SERVER]
-        SOLR: [GATEWAY]
         SPARK_ON_YARN: [GATEWAY]
         YARN: [GATEWAY]
         ZOOKEEPER: [SERVER]
+        SENTRY: [GATEWAY]
+        FLUME: [AGENT]
       Master1:
         HBASE: [MASTER, HBASERESTSERVER, HBASETHRIFTSERVER, GATEWAY]
         HDFS: [NAMENODE, JOURNALNODE, FAILOVERCONTROLLER, GATEWAY]
         HIVE: [HIVEMETASTORE, HIVESERVER2, GATEWAY]
-        IMPALA: [STATESTORE, CATALOGSERVER]
-        KUDU: [KUDU_MASTER]
         SPARK_ON_YARN: [SPARK_YARN_HISTORY_SERVER, GATEWAY]
-        SOLR: [GATEWAY]
         YARN: [RESOURCEMANAGER, JOBHISTORY, GATEWAY]
         ZOOKEEPER: [SERVER]
+        SENTRY: [GATEWAY]
       Master2:
         HBASE: [MASTER, GATEWAY]
         HDFS: [NAMENODE, JOURNALNODE, FAILOVERCONTROLLER, GATEWAY]
         HIVE: [HIVEMETASTORE, HIVESERVER2, GATEWAY]
-        KUDU: [KUDU_MASTER]
-        SOLR: [GATEWAY]
         SPARK_ON_YARN: [GATEWAY]
         YARN: [RESOURCEMANAGER, GATEWAY]
         ZOOKEEPER: [SERVER]
+        SENTRY: [SERVER, GATEWAY]
       Workers:
         HBASE: [REGIONSERVER, GATEWAY]
         HDFS: [DATANODE, GATEWAY]
         HIVE: [GATEWAY]
-        IMPALA: [IMPALAD]
-        KUDU: [KUDU_TSERVER]
-        SOLR: [SOLR_SERVER, GATEWAY]
         SPARK_ON_YARN: [GATEWAY]
         YARN: [NODEMANAGER, GATEWAY]    
+        SENTRY: [GATEWAY]
 
 mgmt:
   name: Cloudera Management Service

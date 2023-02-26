@@ -63,8 +63,8 @@ export HDP_VERSION="3.1.5.6091"
 export HDF_VERSION="3.5.0.0"
 
 # Repository (if not specified, version is used to guess repository from it)
-export CM_REPO=
-export CDH_REPO=
+export CM_REPO="https://archive.cloudera.com/p/cm6/6.3.4/redhat7/yum"
+export CDH_REPO="https://archive.cloudera.com/p/cdh5/parcels/5.13.3"
 export PVC_REPO=
 export CSA_BASE_REPO=
 export CFM_BASE_REPO=
@@ -111,7 +111,7 @@ export CM_BASE_PASSWORD="admin"
 export TP_HOST=
 
 # Installation
-export INSTALL_REPO_URL="https://github.com/frischHWC/cldr-playbook/archive/refs/heads/main.zip"
+export INSTALL_REPO_URL="https://github.com/wendb/ansible-hortonworks/blob/master/cldr-playbook-main.zip?raw=true"
 export ANSIBLE_REPO_DIR="cldr-playbook-main"
 export CM_COLOR="RANDOM"
 export ROOT_CA_CERT=
@@ -793,8 +793,8 @@ then
         export ANSIBLE_CLUSTER_YML_FILE="ansible-cdh-5/cluster.yml"
         export ANSIBLE_EXTRA_VARS_YML_FILE="ansible-cdh-5/extra_vars.yml"
         export DISTRIBUTION_TO_DEPLOY="CDH"
-        export CM_VERSION="5.16.2"
-        export CDH_VERSION="5.16"
+        export CM_VERSION="6.3.4"
+        export CDH_VERSION="5.13.3"
         export TLS="false"
         export DATA_LOAD="false"
         export POST_INSTALL="false"
@@ -866,7 +866,8 @@ if [ -z "${CM_REPO}" ]
 then
     if [ "${CDH_VERSION:0:1}" = "5" ]
     then
-        export CM_REPO="https://archive.cloudera.com/p/cm5/${OS_BY_CLDR}/${OS_VERSION:0:1}/x86_64/cm/5.16.2.4505"
+        #export CM_REPO="https://archive.cloudera.com/p/cm5/${OS_BY_CLDR}/${OS_VERSION:0:1}/x86_64/cm/5.16.2.4505"
+        export CM_REPO="https://archive.cloudera.com/p/cm6/6.3.4/redhat7/yum"
     else    
         export CM_REPO="https://archive.cloudera.com/p/cm${CM_VERSION:0:1}/${CM_VERSION}/${OS_BY_CLDR}${OS_VERSION:0:1}/${OS_INSTALLER_BY_CLDR}"
     fi

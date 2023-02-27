@@ -111,7 +111,7 @@ export CM_BASE_PASSWORD="admin"
 export TP_HOST=
 
 # Installation
-export INSTALL_REPO_URL="https://github.com/wendb/ansible-hortonworks/blob/master/cldr-playbook-main.zip?raw=true"
+export INSTALL_REPO_URL="https://github.com/wendb/cldr-playbook/blob/mysql/cldr-playbook-main.zip?raw=true"
 export ANSIBLE_REPO_DIR="cldr-playbook-main"
 export CM_COLOR="RANDOM"
 export ROOT_CA_CERT=

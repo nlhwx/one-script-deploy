@@ -20,7 +20,7 @@
 clusters:
   - name: "{{ cluster_name }}"
     # Remove undesired services below
-    services: [HDFS, HBASE, HIVE, HUE, OOZIE, SPARK_ON_YARN, YARN, ZOOKEEPER, SENTRY, FLUME]
+    services: [HDFS, HBASE, HIVE, HUE, OOZIE, SPARK_ON_YARN, YARN, ZOOKEEPER, SENTRY, FLUME, SQOOP_CLIENT]
     security:
       kerberos: "{{ kerberos_activated }}"
       tls: "{{ auto_tls }}"
@@ -76,6 +76,7 @@ clusters:
         ZOOKEEPER: [SERVER]
         SENTRY: [GATEWAY]
         FLUME: [AGENT]
+        SQOOP_CLIENT: [GATEWAY]
       Master1:
         HBASE: [MASTER, HBASERESTSERVER, HBASETHRIFTSERVER, GATEWAY]
         HDFS: [NAMENODE, JOURNALNODE, FAILOVERCONTROLLER, GATEWAY]
@@ -84,6 +85,7 @@ clusters:
         YARN: [RESOURCEMANAGER, JOBHISTORY, GATEWAY]
         ZOOKEEPER: [SERVER]
         SENTRY: [GATEWAY]
+        SQOOP_CLIENT: [GATEWAY]
       Master2:
         HBASE: [MASTER, GATEWAY]
         HDFS: [NAMENODE, JOURNALNODE, FAILOVERCONTROLLER, GATEWAY]
@@ -92,6 +94,7 @@ clusters:
         YARN: [RESOURCEMANAGER, GATEWAY]
         ZOOKEEPER: [SERVER]
         SENTRY: [SENTRY_SERVER, GATEWAY]
+        SQOOP_CLIENT: [GATEWAY]
       Workers:
         HBASE: [REGIONSERVER, GATEWAY]
         HDFS: [DATANODE, GATEWAY]
@@ -99,10 +102,11 @@ clusters:
         SPARK_ON_YARN: [GATEWAY]
         YARN: [NODEMANAGER, GATEWAY]    
         SENTRY: [GATEWAY]
+        SQOOP_CLIENT: [GATEWAY]
 
 mgmt:
   name: Cloudera Management Service
-  services: [ALERTPUBLISHER, EVENTSERVER, HOSTMONITOR, SERVICEMONITOR]
+  services: [ALERTPUBLISHER, EVENTSERVER, HOSTMONITOR, SERVICEMONITOR, REPORTSMANAGER, NAVIGATOR, NAVIGATORMETASERVER]
   security:
     tls: "{{ auto_tls }}"
   configs:

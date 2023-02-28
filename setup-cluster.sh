@@ -795,7 +795,7 @@ then
         export DISTRIBUTION_TO_DEPLOY="CDH"
         export CM_VERSION="6.3.4"
         export CDH_VERSION="5.13.3"
-        export TLS="false"
+        export TLS="true"
         export DATA_LOAD="false"
         export POST_INSTALL="false"
     elif [ "${CLUSTER_TYPE}" = "hdp2" ]

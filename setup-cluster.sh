@@ -920,8 +920,7 @@ if [ -z "${CM_REPO}" ]
 then
     if [ "${CDH_VERSION:0:1}" = "5" ]
     then
-        #export CM_REPO="https://archive.cloudera.com/p/cm5/${OS_BY_CLDR}/${OS_VERSION:0:1}/x86_64/cm/5.16.2.4505"
-        export CM_REPO="https://archive.cloudera.com/p/cm6/6.3.4/redhat7/yum"
+        export CM_REPO="https://archive.cloudera.com/p/cm5/${OS_BY_CLDR}/${OS_VERSION:0:1}/x86_64/cm/5.16.2.4505"
     else    
         export CM_REPO="https://archive.cloudera.com/p/cm${CM_VERSION:0:1}/${CM_VERSION}/${OS_BY_CLDR}${OS_VERSION:0:1}/${OS_INSTALLER_BY_CLDR}"
     fi

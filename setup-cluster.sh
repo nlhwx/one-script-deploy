@@ -120,7 +120,7 @@ export CM_BASE_PASSWORD="admin"
 export TP_HOST=
 
 # Installation
-export INSTALL_REPO_URL="https://github.com/wendb/cldr-playbook/blob/mysql/cldr-playbook-main.zip?raw=true"
+export INSTALL_REPO_URL="https://github.com/frischHWC/cldr-playbook/archive/refs/heads/main.zip"
 export ANSIBLE_REPO_DIR="cldr-playbook-main"
 export CM_COLOR="RANDOM"
 export ROOT_CA_CERT=
